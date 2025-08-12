@@ -2,7 +2,8 @@
 
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
+// ATUALIZADO: Importado o tipo 'Variants' para a tipagem explícita.
+import { motion, Variants } from 'framer-motion';
 import { Paintbrush, Shirt, Music, SquareRadical } from 'lucide-react';
 
 const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -11,9 +12,17 @@ const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const fadeInAnimation = {
+// ATUALIZADO: Adicionada a tipagem explícita ': Variants' para corrigir o erro de build.
+const fadeInAnimation: Variants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
 };
 
 const Page: NextPage = () => {
@@ -25,7 +34,6 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* ATUALIZADO: Adicionada a classe 'overflow-x-hidden' para conter o transbordamento horizontal da estrela. */}
       <main className="font-sans bg-zinc-900 text-zinc-50 antialiased overflow-x-hidden">
 
         <section className="relative flex h-screen w-full flex-col items-center justify-center">
